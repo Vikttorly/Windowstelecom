@@ -4,43 +4,31 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-    <!-- Basic Page Needs
-    ================================================== -->
         <meta charset="utf-8">
-        <title>WindowsTelecom</title>
+        <title>WindowsTelecom - Servicio de valor agregado a internet</title>
         <meta name="description" content="">
-        <!-- Mobile Specific Metas
-    ================================================== -->
        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-         <!-- CSS
-         ================================================== -->
-        <!-- Bootstrap -->
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <!-- FontAwesome -->
         <link rel="stylesheet" href="css/font-awesome.min.css"/>
-        <!-- Animation -->
         <link rel="stylesheet" href="css/animate.css" />
-        <!-- Owl Carousel -->
         <link rel="stylesheet" href="css/owl.carousel.css"/>
          <link rel="stylesheet" href="css/owl.theme.css"/>
-         <!-- Pretty Photo -->
          <link rel="stylesheet" href="css/prettyPhoto.css"/>
          <link rel="stylesheet" href="css/flexslider.css"/>
          <link rel="stylesheet" href="css/red.css"/>
-
-        <!-- Template styles-->
         <link rel="stylesheet" href="css/custom.css" />
         <link rel="stylesheet" href="css/responsive.css" />
         <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	
         <link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500' rel='stylesheet' type='text/css'>
         <script src="js/apiGoogleMaps.js"></script>
+        <script src="js/validar.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4hudFvz2rPA7OV7SToCs1mtF056zmEnw&callback=initMap">
  </script>
     </head>
+
 
  <body data-spy="scroll" data-target=".navbar-fixed-top">
         <!--[if lt IE 7]>
@@ -82,15 +70,15 @@
                 <source type="video/ogg" src="videos/gdrive.ogv" />
                 <source type="video/webm" src="videos/gdrive.webm" />
             </video>
-        </div> 
+        </div>
 
         <div class="parallax-overlay"></div>
 
         <div class="container">
             <div class="hero-content text-center">
                 <div class="hero-text wow fadeIn" data-wow-delay=".8s">
-                    <h3 class="hero-title"><span>WindowsTelecom</span> Innovación en desarrollo web</h3>
-                    <p class="hero-description">No jugamos carrito</p>
+                    <h3 class="hero-title"><span>WindowsTelecom</span> Una solucion en telecomunicaciones</h3>
+                    <p class="hero-description">Somos la mejor opción</p>
                     <p class="hero-buttons">
                         <a href="#about" class="btn btn-dark page-scroll">
                             <strong>Conoce Más </strong> </i>
@@ -113,7 +101,7 @@
                     <div class="col-md-12">
                         <div class="feature_header text-center">
                             <h3 class="feature_title">Nuestros <b>Servicios</b></h3>
-                            <h4 class="feature_sub">El veloz murciélago hindú comía feliz cardillo y kiwi <br>El veloz murciélago hindú comía feliz cardillo y kiwi</h4>
+                            <h4 class="feature_sub">Contamos con las mejores tecnologías para brindarte servicios de telecomunicaciones con calidad y confianza </h4>
                             <div class="divider"></div>
                         </div>
                     </div>  <!-- Col-md-12 End -->
@@ -122,38 +110,193 @@
                     <div class="main_feature text-center">
                         <div class="col-md-3 col-xs-12 col-sm-6">
                                 <div class="feature_content">
-                                    <i class="fa fa-lightbulb-o"></i>
-                                    <h5>Ligero</h5>
-                                    <p>No puedes quedarte atras, los servicios moviles estan en todos lados, te introducimos a este campo y blablablabla</p>
-                                    <button class="btn btn-main"> Conoce Más</button>
+                                    <i class="fa fa-code-fork" aria-hidden="true" data-toggle="modal" data-target="#modal1"></i>
+                                    <h5 data-toggle="modal" data-target="#modal1">Enlaces de red IP</h5>
+                                    <p>Interconexión de redes privada punto a punto y punto a multipunto  </p><br>
+                                    <button class="btn btn-main" data-toggle="modal" data-target="#modal1"> Conoce Más</button>
                                 </div>
                             </div>
                         <div class="col-md-3 col-xs-12 col-sm-6">
                                 <div class="feature_content">
-                                    <i class="fa fa-pencil"></i>
-                                    <h5>Bellas tipografías</h5>
-                                    <p>Nuestros temas agradan a las personas que los ven y blablablablabla </p>
-                                    <button class="btn btn-main"> Conoce Más</button>
+                                    <i class="fa fa-users" aria-hidden="true" data-toggle="modal" data-target="#modal2"></i>
+                                    <h5 data-toggle="modal" data-target="#modal2">Internet dedicado</h5>
+                                    <p>Acceso a Internet para organizaciones con ancho de banda fijo y garantizado </p><br>
+                                    <button class="btn btn-main" data-toggle="modal" data-target="#modal2"> Conoce Más</button>
                                 </div>
                         </div> <!-- Col-md-4 Single_feature End -->
                         <div class="col-md-3 col-xs-12 col-sm-6">
                                 <div class="feature_content">
-                                    <i class="fa fa-cog"></i>
-                                    <h5>Soporte 24/7</h5>
-                                    <p>Te daremos soporte cada vez que lo necesites porque windowstelecom piensa en ti y en tu comodidad y blablablabla </p>
-                                    <button class="btn btn-main"> Conoce Más</button>
+                                    <i class="fa fa-eye" aria-hidden="true" data-toggle="modal" data-target="#modal3"></i>
+                                    <h5 data-toggle="modal" data-target="#modal3">Protección y Seguridad</h5>
+                                    <p>Instalamos cámaras de seguridad para exteriores, interiores y PTZ </p><br>
+                                    <button class="btn btn-main" data-toggle="modal" data-target="#modal3"> Conoce Más</button>
                                 </div>
                         </div> <!-- Col-md-4 Single_feature End -->
                         <div class="col-md-3 col-xs-12 col-sm-6">
                                 <div class="feature_content">
-                                    <i class="fa fa-desktop"></i>
-                                    <h5>Ultra Responsive</h5>
-                                    <p>Nos adaptamos a cualquier entorno porque somos windowstelecom y no jugamos carrito </p>
-                                    <button class="btn btn-main"> Conoce Más</button>
+                                    <i class="fa fa-cloud" aria-hidden="true" data-toggle="modal" data-target="#modal4"></i>
+                                    <h5 data-toggle="modal" data-target="#modal4">Servicios en la nube</h5>
+                                    <p>Respaldo de información y acceso remoto 24/7 en cualquier parte del mundo </p>
+                                    <button class="btn btn-main" data-toggle="modal" data-target="#modal4"> Conoce Más</button>
                                 </div>
-                        </div> <!-- Col-md-4 Single_feature End -->
-                        <!-- <button class="btn btn-main"> Conoce Más</button> -->
+                        </div> 
+
                     </div>
+
+                    <!--Modal para enlaces de red ip-->
+
+                    <div class="modal fade" id="modal1" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center><h3 class="feature_title">ENLACES DE RED IP</h3></center>
+                             </div>
+                                <div class="modal-body">
+
+                                <p align="justify">Interconexión de redes privada punto a punto ó punto multipunto que permite la
+                                    transferencia de datos de forma rápida y segura. Con este servicio usted podrá
+                                    acceder a cualquiera de sus localidad es conectadas sin necesidad de Internet.<br><br>
+                                    Garantizamos la disponibilidad del servicio ya qué contamos con enlaces
+                                    redundantes:<br><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Velocidades disponibles: desde 1 Mbps hasta 50 Mbps.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Protocolos de transmisión TCP/IP.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Acceso directo en Ethernet (RJ-45).</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Transmisión de Voz y video.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Acceso a servidores de correo electrónico locales.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Acceso a cámaras de seguridad.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Acceso a aplicaciones cliente-servidor, conexiones bancarias y en general las aplicaciones de misión
+                                    critica.</b>
+                                    </p></b><br>
+
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+      
+                            </div>
+                    </div>
+
+                    <!--Fin modal enlaces de red ip-->
+
+                    <!--Inicio modal internet dedicado-->
+
+                    <div class="modal fade" id="modal2" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center><h3 class="feature_title">INTERNET DEDICADO</h3></center>
+                             </div>
+                                <div class="modal-body">
+
+                                <p align="justify">Servicio exclusivo para organizaciones que requieran conexión a Internet de
+                                    calidad, conectar redes de computadores, servidores o implementar
+                                    servicios de correo electrónico y web con un ancho de banda fijo y garantizado.<br><br>
+                                    Entre los beneficios de este servício, se destaca:<br><br> 
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Uso de aplicaciones voz sobre IP, ideales para ahorrar costos en telefonía y comunicaciones corporativas en general.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Se recomienda para aplicaciones de tráfico pesado, misión crítica ó sensible al retardo.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Velocidades disponibles desde 1 Mbps.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Ancho de banda exclusivo, es decir no se comparte con otros usuarios como ocurre con los productos de Banda Ancha y Cable Módem USB.</b></p>
+                                    
+
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+      
+                            </div>
+                    </div>
+
+                     <!--fin modal internet dedicado-->
+
+                     <!--Inicio modal proteccion y seguridad-->
+
+                    <div class="modal fade" id="modal3" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center><h3 class="feature_title">PROTECCIÓN Y SEGURIDAD</h3></center>
+                             </div>
+                                <div class="modal-body">
+
+                                <p align="justify">Gracias a nuestra tecnología de vídeo vigilancia usted podrá supervisar una diversidad de
+                                    ambientes y actividades. Todos los dispositivos se encuentran enlazados entre sí 
+                                    creando un circuito cerrado. El monitoreo de las cámaras puede ser
+                                    desde un monitor, televisor, computador o cualquier dispositivo de visualización conectado a Internet  <br><br>
+
+                                    Contamos con cámaras para exteriores, interiores y PTZ, ésta última tiene la
+                                    ventaja de poder controlar y configurar su panorámica, enfoque, inclinación y
+                                    zoom, lo que permite obtener rangos de coberturas formidables. <br><br>
+
+                                    Usted podrá capturar cualquier evento a cualquier hora del día ya qué nuestra
+                                    tecnología cuenta con visión nocturna, operaciones asistidas por ordenador y
+                                    detección de movimiento, facilitando al sistema ponerse en estado de alerta
+                                    cuando existe algún tipo de movimiento sospechoso delante de las cámaras. <br><br>
+
+                                    Bajo este servicio otorgamos los siguientes beneficios:<br><br>
+
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Mayor seguridad y bienestar.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Monitoreo desde cualquier parte del mundo en tiempo real.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Mayor productividad y eficiencia.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Supervisión de áreas de ventas y de atención al cliente.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Registro continuo de los eventos que ocurren dentro de la organización.</b></p>
+                                    
+
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+      
+                            </div>
+                    </div>
+
+                     <!--Fin modal proteccion y seguridad-->
+
+
+                     <!--Inicio modal servicios en la nube-->
+
+                    <div class="modal fade" id="modal4" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center><h3 class="feature_title">SERVICIOS EN LA NUBE</h3></center>
+                             </div>
+                                <div class="modal-body">
+
+                                <p align="justify">Nuestros servicios en La Nube le ofrecen soluciones completas e innovadoras, gracias
+                                    a nuestra disponibilidad de aplicativos usted podrá contar con tecnología depunta a bajos
+                                    costos, esto le brindará mayor seguridad a sus datos y una mayor disponibilidad de 
+                                    información sin importar la región o país donde se encuentre.<br><br>
+
+                                    Con nuestros servicios en La Nube usted podrá tener:<br><br>
+
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Acceso remoto las 24 horas del día a su información.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Respaldo total de información.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Menor gasto de infraestructura.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Mayor seguridad.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Servicio y soporte especializado.</b><br>
+                                    <b><i class="fa fa-check-square-o" aria-hidden="true"></i> No requiere de cambios en Tecnologías.</b></p>
+                                    
+                                    
+
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+      
+                            </div>
+                    </div>
+
+                     <!--Fin modal servicios en la nube-->
+
+
             </div>  <!-- Row End -->
         </div>  <!-- Container End -->
     </section>
@@ -940,38 +1083,96 @@
                 </div>
   			</div>
         </div>
+        <div id="respuesta">
+            
+        </div>
+        <div class="enviarMensaje">
         <div class="row">
              <div class="contact_full">
                 <div class="col-md-6 left">
                     <div class="left_contact">
-                        <form action="role">
+                        <form action="role" id="enviarMensaje">
                             <div class="form-level">
-                                <input name="name" placeholder="Name" id="name"  value="" type="text" class="input-block">
+                                <input name="nombre" placeholder="Nombre" id="nombre"  value="" type="text" class="input-block" onkeypress="return soloLetras(event);" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                 <span class="form-icon fa fa-user"></span>
                             </div>
                             <div class="form-level">
-                                <input name="email" placeholder="Email" id="mail" class="input-block" value="" type="email">
+                                <input name="email" placeholder="Email" id="email" class="input-block" value="" type="email">
                                 <span class="form-icon fa fa-envelope-o"></span>
                             </div>
                             <div class="form-level">
-                                <input name="name" placeholder="Phone" id="phone" class="input-block" value="" type="text">
+                                <input name="telefono" placeholder="Teléfono" id="telefono" class="input-block" value="" type="text" onkeypress="return soloNumeros(event);">
                                 <span class="form-icon fa fa-phone"></span>
                             </div>
-                        </form>
-                    </div>
+                                            </div>
                 </div>
 
                 <div class="col-md-6 right">
                     <div class="form-level">
-                        <textarea name="" id="messege"  rows="5" class="textarea-block" placeholder="message"></textarea>
+                        <textarea name="mensaje" id="messege"  rows="5" class="textarea-block" placeholder="Mensaje"></textarea>
                         <span class="form-icon fa fa-pencil"></span>
                     </div>
                 </div>
+                </form>
+
                 <div class="col-md-12 text-center">
-                    <button class="btn btn-main featured">Submit Now</button>
+                    <button class="btn btn-main featured" id="registrarUsuario">Enviar</button>
                 </div>
             </div>
         </div>
+
+        <script>   
+
+            $("#registrarUsuario").click(function() {  
+
+                var c1 = false;
+                var c2 = false;
+                var c3 = false;
+
+                if($("#nombre").val().length < 1) {  
+                    $("#nombre").css("border-color", "#d23737"); 
+                    c1 = false; 
+                }else{  
+                    $("#nombre").css("border-color", "#92c54f");   
+                    c1 = true;
+                }
+
+                if($("#email").val().length < 1) {  
+                    $("#email").css("border-color", "#d23737");
+                    c2 = false;  
+                }else{  
+                    $("#email").css("border-color", "#92c54f");   
+                    c2 = true;
+                }
+
+                if($("#telefono").val().length < 1) {  
+                    $("#telefono").css("border-color", "#d23737");  
+                    c3 = false;
+                }else{  
+                    $("#telefono").css("border-color", "#92c54f"); 
+                    c3 = true;  
+                }
+
+                if ((c1 == true) && (c2 == true) && (c3 == true)) {
+                     var url = "mensaje.php"; 
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $("#enviarMensaje").serialize(), 
+                    success: function(data)
+                    {
+                        $("#respuesta").html(data); 
+                        $('.enviarMensaje').hide();
+                    }
+                    });
+                }else{
+                    alert("chao");
+                }
+
+            });  
+
+        </script>
+</div>
     </div>
 </section>
 
