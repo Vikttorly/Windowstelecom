@@ -1,3 +1,5 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <?php
 
 error_reporting(0);
@@ -35,7 +37,15 @@ if ($variable == 'principal') {
 		$mensaje = $res['mensaje'];
 		$fecha = $res['fecha'];
 
-		$resultado .= '<tr><td><input type="checkbox" name="idMensaje" value="'.$id.'"></td><td>'.$nombre.'</td><td>'.$email.'</td><td>'.$telefono.'</td><td>'.$mensaje.'</td><td>'.$fecha.'</td></tr>';
+		$resultado .= '
+		<tr>
+		<td><input type="checkbox" value="'.$id.'" name="idMensaje"></td>
+		<td>'.$nombre.'</td>
+		<td>'.$email.'</td>
+		<td>'.$telefono.'</td>
+		<td>'.$mensaje.'</td>
+		<td>'.$fecha.'</td>
+		</tr>';
 		
 	}
 
@@ -50,7 +60,6 @@ if ($variable == 'principal') {
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                 <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Archivar</a></li>
                 </ul>
             </div>
         </nav>
@@ -82,7 +91,6 @@ if ($variable == 'principal') {
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                <li><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Archivar</a></li>
                 </ul>
             </div>
@@ -111,10 +119,13 @@ if ($variable == 'principal') {
 
 <table class="table table-hover">
 
+<form action="eliminarmensajes.php" method="post">
+
 <?php
 
 echo $resultado;
 
 ?>
 
+</form>
 </table>
