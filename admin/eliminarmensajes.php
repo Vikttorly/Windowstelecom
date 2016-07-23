@@ -2,13 +2,22 @@
 
 include("conexion.php");
 
-if ($_POST['enviar']) {
-	
-	foreach ($_POST['idMensaje'] as $idMensaje) {
-		
-		mysqli_query($conexion,"UPDATE mensajes SET estado= 'E' WHERE id=$idMensaje");
+$service = $_POST['id'];
+$accion = $_POST['accion'];
 
-	}
+if ($accion == 'Eliminar') {
+
+	mysqli_query($conexion,"UPDATE mensajes SET estado='E' WHERE id=$service");
+
+}elseif ($accion == 'Archivar') {
+
+	mysqli_query($conexion,"UPDATE mensajes SET estado='G' WHERE id=$service");
+
+}elseif ($accion == 'Reciclar') {
+
+	mysqli_query($conexion,"UPDATE mensajes SET estado='S' WHERE id=$service");
 }
+
+
 
 ?>
