@@ -9,7 +9,7 @@ include("conexion.php");
 
  if (isset($_POST['nombre'])) {
 
- 	mysqli_query($conexion,"INSERT INTO mensajes(nombre,email,telefono,mensaje,estado,fecha) VALUES ('$nombre','$email',$telefono,'$mensaje','S',NOW())");
+ 	mysqli_query($conexion,"INSERT INTO mensajes(nombre,email,telefono,mensaje,leido,estado,fecha) VALUES ('$nombre','$email',$telefono,'$mensaje',0,'S',NOW())");
 
  	?>
 				<br><br><br><br>

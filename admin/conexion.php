@@ -12,6 +12,7 @@
 
 
 	$conexion = @mysqli_connect($server, $user, $password, $bd);
+	mysqli_query($conexion,"SET lc_time_names = 'es_VE';");
 
 	if( !$conexion ) die( '
 		

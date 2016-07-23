@@ -16,7 +16,7 @@
 
 <?php
 
-error_reporting(0);
+
 
 include("conexion.php");
 
@@ -28,15 +28,16 @@ if ($variable == 'principal') {
 
 		<nav class="navbar navbar-default col-md-11" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Bandeja principal</a>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Bandeja principal</a>
             </div>
         </nav>
 
 	<?php
 
-	$consulta = mysqli_query($conexion,"SELECT * FROM mensajes WHERE estado='S' ORDER BY fecha ASC");
+	$consulta = mysqli_query($conexion,"SELECT * FROM mensajes WHERE estado='S' ORDER BY fecha DESC;");
 
-
+	if (mysqli_num_rows($consulta) > 0) {
+		
 	while ($res = mysqli_fetch_assoc($consulta)) {
 
         $id = $res['id'];
@@ -44,10 +45,19 @@ if ($variable == 'principal') {
 		$email = $res['email'];
 		$telefono = $res['telefono'];
 		$mensaje = $res['mensaje'];
-		$fecha = $res['fecha'];
+		$leido = $res['leido'];
+		
+		$res2 = mysqli_fetch_assoc(mysqli_query($conexion,"SELECT date_format(fecha,' %d %M de %Y') AS fecha_formateada FROM mensajes WHERE id=$id"));
+		$fecha = $res2['fecha_formateada'];
+
+		if ($leido == 0) {
+			$nombre = '<b>'.$nombre.'</b>';
+		}
 
 		echo '
-		<div class="col-md-11 mensajes" id="seleccionar'.$id.'">
+		<div class="col-md-11" id="seleccionar'.$id.'">
+		<div class="mensajes">
+		<input type="hidden" value="'.$id.'">
 		<table>
 		<td>
 
@@ -58,18 +68,30 @@ if ($variable == 'principal') {
 		<div id="seleccionar'.$id.'" data="'.$id.'"><span class="glyphicon glyphicon-briefcase archivar" id="archivar'.$id.'" aria-hidden="true"></span></div>
 		</td>
 
-		<td width="300"><b>'.$nombre.'</b></td>
-		<td width="40%"><i>'.$email.'</i></td>
+		<td>
+		<div id="seleccionar'.$id.'" data="'.$id.'"><span class="glyphicon glyphicon-eye-open verMensaje aria-hidden="true"></span></div>
+		</td>
+
+		<td width="300">'.$nombre.'</td>
+		<td width="45%"><i>'.$email.'</i></td>
 		<td>'.$fecha.'</td>
 		</tr>
 
 		
 		</table>
 		</div>
+		<div id="mensajeCompleto'.$id.'"></div>
+		</div>
 		';
 		
-	}
+		}
 
+	}else{
+		echo '
+		<div align="center" class="col-md-11" style="margin-top:18%;">
+			<h1>No hay mensajes para mostrar</h1>
+		</div>';
+	}
 
 }elseif ($variable == 'guardados') {
 
@@ -77,13 +99,15 @@ if ($variable == 'principal') {
 
 		<nav class="navbar navbar-default col-md-11" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Mensaje guardados</a>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-briefcase reciclar" aria-hidden="true"></span> Mensaje guardados</a>
             </div>
         </nav>
 
 	<?php
 
-	$consulta = mysqli_query($conexion,"SELECT * FROM mensajes WHERE estado='G' ORDER BY fecha ASC");
+	$consulta = mysqli_query($conexion,"SELECT * FROM mensajes WHERE estado='G' ORDER BY fecha DESC");
+
+	if (mysqli_num_rows($consulta) > 0) {
 
 	while ($res = mysqli_fetch_assoc($consulta)) {
 
@@ -92,10 +116,19 @@ if ($variable == 'principal') {
 		$email = $res['email'];
 		$telefono = $res['telefono'];
 		$mensaje = $res['mensaje'];
-		$fecha = $res['fecha'];
+		$leido = $res['leido'];
+
+		$res2 = mysqli_fetch_assoc(mysqli_query($conexion,"SELECT date_format(fecha,' %d %M de %Y') AS fecha_formateada FROM mensajes WHERE id=$id"));
+		$fecha = $res2['fecha_formateada'];
+
+		if ($leido == 0) {
+			$nombre = '<b>'.$nombre.'</b>';
+		}
 
 		echo '
-		<div class="col-md-11 mensajes" id="seleccionar'.$id.'">
+		<div class="col-md-11" id="seleccionar'.$id.'">
+		<div class="mensajes">
+		<input type="hidden" value="'.$id.'">
 		<table>
 		<td>
 
@@ -106,16 +139,29 @@ if ($variable == 'principal') {
 		<div id="seleccionar'.$id.'" data="'.$id.'"><span class="glyphicon glyphicon-inbox reciclar" id="reciclar'.$id.'" aria-hidden="true"></span></div>
 		</td>
 
-		<td width="300"><b>'.$nombre.'</b></td>
-		<td width="40%"><i>'.$email.'</i></td>
+		<td>
+		<div id="seleccionar'.$id.'" data="'.$id.'"><span class="glyphicon glyphicon-eye-open verMensaje aria-hidden="true"></span></div>
+		</td>
+
+		<td width="300">'.$nombre.'</td>
+		<td width="45%"><i>'.$email.'</i></td>
 		<td>'.$fecha.'</td>
 		</tr>
 
 		
 		</table>
 		</div>
+		<div id="mensajeCompleto'.$id.'"></div>
+		</div>
 		';
 		
+	}
+	
+	}else{
+		echo '
+		<div align="center" class="col-md-11" style="margin-top:18%;">
+			<h1>No hay mensajes para mostrar</h1>
+		</div>';
 	}
 
 }elseif ($variable == 'eliminados') {
@@ -124,13 +170,15 @@ if ($variable == 'principal') {
 
 		<nav class="navbar navbar-default col-md-11" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Mensajes eliminados</a>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  Mensajes eliminados</a>
             </div>
         </nav>
 
 	<?php
 	
-	$consulta = mysqli_query($conexion,"SELECT * FROM mensajes WHERE estado='E' ORDER BY fecha ASC");
+	$consulta = mysqli_query($conexion,"SELECT * FROM mensajes WHERE estado='E' ORDER BY fecha DESC");
+
+	if (mysqli_num_rows($consulta) > 0) {
 
 	while ($res = mysqli_fetch_assoc($consulta)) {
 
@@ -139,10 +187,19 @@ if ($variable == 'principal') {
 		$email = $res['email'];
 		$telefono = $res['telefono'];
 		$mensaje = $res['mensaje'];
-		$fecha = $res['fecha'];
+		$leido = $res['leido'];
+		
+		$res2 = mysqli_fetch_assoc(mysqli_query($conexion,"SELECT date_format(fecha,' %d %M de %Y') AS fecha_formateada FROM mensajes WHERE id=$id"));
+		$fecha = $res2['fecha_formateada'];
+
+		if ($leido == 0) {
+			$nombre = '<b>'.$nombre.'</b>';
+		}
 
 		echo '
-		<div class="col-md-11 mensajes" id="seleccionar'.$id.'">
+		<div class="col-md-11" id="seleccionar'.$id.'">
+		<div class="mensajes">
+		<input type="hidden" value="'.$id.'">
 		<table>
 		<td>
 
@@ -153,31 +210,33 @@ if ($variable == 'principal') {
 		<div id="seleccionar'.$id.'" data="'.$id.'"><span class="glyphicon glyphicon-inbox reciclar" id="reciclar'.$id.'" aria-hidden="true"></span></div>
 		</td>
 
-		<td width="300"><b>'.$nombre.'</b></td>
-		<td width="40%"><i>'.$email.'</i></td>
+		<td>
+		<div id="seleccionar'.$id.'" data="'.$id.'"><span class="glyphicon glyphicon-eye-open verMensaje aria-hidden="true"></span></div>
+		</td>
+
+		<td width="300">'.$nombre.'</td>
+		<td width="45%"><i>'.$email.'</i></td>
 		<td>'.$fecha.'</td>
 		</tr>
 
-		
 		</table>
+		</div>
+		<div id="mensajeCompleto'.$id.'"></div>
 		</div>
 		';
 		
 	}
 
+	}else{
+		echo '
+		<div align="center" class="col-md-11" style="margin-top:18%;">
+			<h1>No hay mensajes para mostrar</h1>
+		</div>';
+	}
+
 }
 
 ?>
-
-
-
-<?php
-
-echo $resultado;
-
-?>
-
-
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -205,9 +264,7 @@ $(document).ready(function() {
         });
     });                 
 });    
-</script>
 
-<script type="text/javascript">
 $(document).ready(function() {
 
     $('.archivar').click(function(){
@@ -233,9 +290,7 @@ $(document).ready(function() {
         });
     });                 
 });    
-</script>
 
-<script type="text/javascript">
 $(document).ready(function() {
 
     $('.reciclar').click(function(){
@@ -260,6 +315,21 @@ $(document).ready(function() {
             }
         });
     });                 
-});    
+}); 
+</script>
+
+<script type="text/javascript">
+	 $('.verMensaje').click(function(){
+	 	var idMensaje = $(this).parent().attr('data');
+	 	 $.ajax({
+            type: "POST",
+            url: "mensajecompleto.php",
+            data: {idMensaje:idMensaje},
+            success: function(data) {            
+            	$('.mensajes').remove();
+            	$("#mensajeCompleto"+idMensaje).html(data);
+            }
+        });
+}); 
 </script>
 
