@@ -16,11 +16,10 @@
 
 <?php
 
-
-
 include("conexion.php");
 
 $variable = $_POST['variable'];
+$valorBusqueda = $_POST['valorBusqueda'];
 
 if ($variable == 'principal') {
 
@@ -235,6 +234,8 @@ if ($variable == 'principal') {
 	}
 
 }
+
+echo $valorBusqueda;
 
 ?>
 

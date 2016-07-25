@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2016 a las 01:25:30
+-- Tiempo de generación: 24-07-2016 a las 02:03:19
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.5.19
 
@@ -33,7 +33,14 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `clave` varchar(45) DEFAULT NULL,
   `pSecreta` varchar(45) DEFAULT NULL,
   `rSecreta` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`id`, `nombre`, `usuario`, `clave`, `pSecreta`, `rSecreta`) VALUES
+(1, NULL, 'Vikttorly', '25132279', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -47,17 +54,20 @@ CREATE TABLE IF NOT EXISTS `mensajes` (
   `email` varchar(45) DEFAULT NULL,
   `telefono` int(15) DEFAULT NULL,
   `mensaje` varchar(3000) DEFAULT NULL,
+  `leido` tinyint(1) NOT NULL,
   `estado` char(1) DEFAULT NULL,
   `fecha` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `mensajes`
 --
 
-INSERT INTO `mensajes` (`id`, `nombre`, `email`, `telefono`, `mensaje`, `estado`, `fecha`) VALUES
-(1, 'VICTOR MANUEL', 'viclaya1@hotmail.com', 2147483647, 'viasdasdaklsjdadasdas', 'S', '2016-07-14 18:49:25'),
-(2, 'QWEQWEqw', '12qewqwe123', 2147483647, '3qweqeqw', 'E', '2016-07-14 21:47:30');
+INSERT INTO `mensajes` (`id`, `nombre`, `email`, `telefono`, `mensaje`, `leido`, `estado`, `fecha`) VALUES
+(1, 'VICTOR MANUEL', 'viclaya1@hotmail.com', 2147483647, 'viasdasdaklsjdadasdas', 1, 'E', '2016-07-14 18:49:25'),
+(2, 'QWEQWEqw', '12qewqwe123', 2147483647, '3qweqeqw', 1, 'E', '2016-07-14 21:47:30'),
+(3, 'GABRIEL CORTEZ', 'gabrielito@gmail.com', 2147483647, 'HOLA ESTO ES UNA PRUEBA', 1, 'E', '2016-07-17 20:23:50'),
+(4, 'MANUEL', 'manueo@gmail.com', 874645789, 'adqweqwasdasdasdasd', 1, 'E', '2016-07-23 17:05:59');
 
 --
 -- Índices para tablas volcadas
@@ -83,12 +93,12 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(1) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

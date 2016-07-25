@@ -48,7 +48,7 @@ if ($_SESSION['usuario']) {
                     <center><img src="/windowstelecom/images/logo3.png" alt="" class="img-responsive" width="150" style="margin-top:5%;"></center>
                 </li>
                 <li>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <input type="text" class="form-control" id="" placeholder="Busqueda" name="busqueda" id="busqueda" autocomplete="off" onKeyUp="buscar();">
                 </li>
                 <li>
                     <a href="#" id="bandejaPrincipal">Bandeja principal</a>
@@ -148,6 +148,24 @@ if ($_SESSION['usuario']) {
                     }
                     });
             }); 
+
+
+            function buscar() {
+                var valorBusqueda = $("input#busqueda").val();
+                var url = "mostrarmensajes.php"; 
+ 
+                if (valorBusqueda != "") {
+                    $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {valorBusqueda:valorBusqueda}, 
+                    success: function(data)
+                    {
+                        $("#mostrarMensajes").html(data); 
+                    }
+                    });
+                } 
+            };
 
         </script>
 
